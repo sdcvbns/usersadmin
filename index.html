@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>? áæÍÉ ÊİÚíá ÇáãÓÊÎÏãíä</title>
+  <title>âœ¨ Ù„ÙˆØ­Ø© ØªÙØ¹ÙŠÙ„ Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù…ÙŠÙ†</title>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary-color: #28a745;
+      --primary-color: #28a745; 
       --primary-hover: #1f8738;
-      --secondary-color: #007bff;
-      --bg-light: #f8f9fa;
+      --secondary-color: #007bff; 
+      --bg-light: #f8f9fa; 
       --card-bg: #ffffff;
       --shadow-soft: 0 12px 24px rgba(0, 0, 0, 0.08);
       --danger-color: #dc3545;
       --warning-color: #ffc107;
     }
 
-    /* ** ÃäíãíÔä æÊÕãíã ÇáÈØÇŞÉ ** */
+    /* ** Ø£Ù†ÙŠÙ…ÙŠØ´Ù† ÙˆØªØµÙ…ÙŠÙ… Ø§Ù„Ø¨Ø·Ø§Ù‚Ø© ** */
     @keyframes fadeIn {
       to { opacity: 1; transform: translateY(0); }
     }
@@ -62,7 +62,7 @@
       margin-bottom: 25px;
     }
 
-    /* ** ÓÊÇíá ÍŞæá ÇáÅÏÎÇá æÇáÇÎÊíÇÑ ** */
+    /* ** Ø³ØªØ§ÙŠÙ„ Ø­Ù‚ÙˆÙ„ Ø§Ù„Ø¥Ø¯Ø®Ø§Ù„ ÙˆØ§Ù„Ø§Ø®ØªÙŠØ§Ø± ** */
     input, select {
       width: 100%;
       padding: 12px 15px;
@@ -77,14 +77,14 @@
       -ms-user-select: text !important;
       user-select: text !important;
     }
-   
+    
     input:focus, select:focus {
       border-color: var(--secondary-color);
       box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
       outline: none;
     }
 
-    /* ** ÓÊÇíá ÇáÃÒÑÇÑ ** */
+    /* ** Ø³ØªØ§ÙŠÙ„ Ø§Ù„Ø£Ø²Ø±Ø§Ø± ** */
     button {
       color: white;
       border: none;
@@ -96,17 +96,17 @@
       font-weight: 600;
       margin-top: 15px;
       transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
-      background: var(--primary-color);
+      background: var(--primary-color); 
     }
 
-    button:hover {
+    button:hover { 
         box-shadow: 0 6px 12px rgba(40, 167, 69, 0.3);
     }
-    button:active {
-        transform: scale(0.98);
+    button:active { 
+        transform: scale(0.98); 
     }
 
-    /* ** ÃáæÇä ÃÒÑÇÑ ÇáÅÏÇÑÉ ÇáÌÏíÏÉ ** */
+    /* ** Ø£Ù„ÙˆØ§Ù† Ø£Ø²Ø±Ø§Ø± Ø§Ù„Ø¥Ø¯Ø§Ø±Ø© Ø§Ù„Ø¬Ø¯ÙŠØ¯Ø© ** */
     .btn-suspend {
         background: var(--warning-color);
         color: #333;
@@ -133,7 +133,7 @@
         box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3);
     }
 
-    /* ** İÕá ÃŞÓÇã ÇáÅÏÇÑÉ ** */
+    /* ** ÙØµÙ„ Ø£Ù‚Ø³Ø§Ù… Ø§Ù„Ø¥Ø¯Ø§Ø±Ø© ** */
     .management-separator {
         text-align: center;
         color: #6c757d;
@@ -143,10 +143,10 @@
         font-weight: 600;
         font-size: 1.1rem;
     }
-   
-    /* ** ÚÑÖ ÇáßæÏ ÇáãõæáøóÏ ** */
-    .result {
-      margin-top: 25px;
+    
+    /* ** Ø¹Ø±Ø¶ Ø§Ù„ÙƒÙˆØ¯ Ø§Ù„Ù…ÙÙˆÙ„Ù‘ÙØ¯ ** */
+    .result { 
+      margin-top: 25px; 
       padding: 15px;
       background: #e9f7ef;
       border: 1px dashed var(--primary-color);
@@ -166,10 +166,10 @@
     }
 
     #activationCodeDisplay {
-        font-weight: bold;
+        font-weight: bold; 
         color: var(--secondary-color);
         font-size: 1.2rem;
-        direction: ltr;
+        direction: ltr; 
         font-family: 'Courier New', monospace;
         padding: 5px;
         -webkit-user-select: text !important;
@@ -177,7 +177,7 @@
         -ms-user-select: text !important;
         user-select: text !important;
     }
-   
+    
     .copy-btn {
         background: var(--secondary-color);
         width: auto !important;
@@ -189,8 +189,8 @@
     .copy-btn:hover {
         background: #0056b3;
     }
-   
-    /* ** ÇáÊÌÇæÈíÉ (Responsive) ** */
+    
+    /* ** Ø§Ù„ØªØ¬Ø§ÙˆØ¨ÙŠØ© (Responsive) ** */
     @media (max-width: 500px) {
         .card {
             padding: 25px 15px;
@@ -200,70 +200,70 @@
 </head>
 <body>
   <div class="card">
-    <h3>áæÍÉ ÊİÚíá ÇáãÓÊÎÏãíä</h3>
-    <input type="text" id="userNumber" placeholder="ÃÏÎá ÑŞã ÇáãÓÊÎÏã (USR-XXXX)" value="">
+    <h3>Ù„ÙˆØ­Ø© ØªÙØ¹ÙŠÙ„ Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù…ÙŠÙ†</h3>
+    <input type="text" id="userNumber" placeholder="Ø£Ø¯Ø®Ù„ Ø±Ù‚Ù… Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù… (USR-XXXX)" value="">
     <select id="duration">
-      <option value="">ÇÎÊÑ ãÏÉ ÇáÊİÚíá</option>
-      <option value="test">ÇÎÊÈÇÑ (2 ÓÇÚÇÊ)</option>
-      <option value="1m">ÔåÑ (30 íæã)</option>
-      <option value="2m">ÔåÑíä (60 íæã)</option>
-      <option value="3m">3 ÃÔåÑ (90 íæã)</option>
-      <option value="6m">6 ÃÔåÑ</option>
-      <option value="12m">ÓäÉ ßÇãáÉ</option>
+      <option value="">Ø§Ø®ØªØ± Ù…Ø¯Ø© Ø§Ù„ØªÙØ¹ÙŠÙ„</option>
+      <option value="test">Ø§Ø®ØªØ¨Ø§Ø± (2 Ø³Ø§Ø¹Ø§Øª)</option>
+      <option value="1m">Ø´Ù‡Ø± (30 ÙŠÙˆÙ…)</option>
+      <option value="2m">Ø´Ù‡Ø±ÙŠÙ† (60 ÙŠÙˆÙ…)</option>
+      <option value="3m">3 Ø£Ø´Ù‡Ø± (90 ÙŠÙˆÙ…)</option>
+      <option value="6m">6 Ø£Ø´Ù‡Ø±</option>
+      <option value="12m">Ø³Ù†Ø© ÙƒØ§Ù…Ù„Ø©</option>
     </select>
 
-    <button onclick="activateUser()" id="activateButton">ÊİÚíá ÇáÂä æÊæáíÏ ÇáßæÏ</button>
-   
+    <button onclick="activateUser()" id="activateButton">ØªÙØ¹ÙŠÙ„ Ø§Ù„Ø¢Ù† ÙˆØªÙˆÙ„ÙŠØ¯ Ø§Ù„ÙƒÙˆØ¯</button>
+    
     <div class="result" id="result" style="display:none;">
-        <div class="result-label">ÇáßæÏ ÇáãõæáøóÏ:</div>
+        <div class="result-label">Ø§Ù„ÙƒÙˆØ¯ Ø§Ù„Ù…ÙÙˆÙ„Ù‘ÙØ¯:</div>
         <div id="activationCodeDisplay"></div>
-        <button class="copy-btn" onclick="copyCode()">äÓÎ ÇáßæÏ</button>
+        <button class="copy-btn" onclick="copyCode()">Ù†Ø³Ø® Ø§Ù„ÙƒÙˆØ¯</button>
     </div>
 
-    <div class="management-separator">ÅÏÇÑÉ ÇáÊİÚíá</div>
-   
-    <button onclick="suspendCode()" id="suspendButton" class="btn-suspend">ÅíŞÇİ ãÄŞÊ ááßæÏ</button>
-    <button onclick="modifyCode()" id="modifyButton" class="btn-modify">ÊãÏíÏ/ÊÚÏíá ÇáãÏÉ</button>
-    <button onclick="deleteCode()" id="deleteButton" class="btn-danger">ÍĞİ ÇáßæÏ äåÇÆíÇğ</button>
+    <div class="management-separator">Ø¥Ø¯Ø§Ø±Ø© Ø§Ù„ØªÙØ¹ÙŠÙ„</div>
+    
+    <button onclick="suspendCode()" id="suspendButton" class="btn-suspend">Ø¥ÙŠÙ‚Ø§Ù Ù…Ø¤Ù‚Øª Ù„Ù„ÙƒÙˆØ¯</button>
+    <button onclick="modifyCode()" id="modifyButton" class="btn-modify">ØªÙ…Ø¯ÙŠØ¯/ØªØ¹Ø¯ÙŠÙ„ Ø§Ù„Ù…Ø¯Ø©</button>
+    <button onclick="deleteCode()" id="deleteButton" class="btn-danger">Ø­Ø°Ù Ø§Ù„ÙƒÙˆØ¯ Ù†Ù‡Ø§Ø¦ÙŠØ§Ù‹</button>
 
   </div>
 
   <script>
     const GAS_URL = "https://script.google.com/macros/s/AKfycbyuD0EUMjGq9_rf6NDpv3WlXtENX5P3wdd3U2i3wA2sSVZuQc7nBX4Cg-f6jgrtbcERxQ/exec";
-   
-    // ** æÙíİÉ ãÓÇÚÏÉ áÅÑÓÇá ØáÈÇÊ ÇáÅÏÇÑÉ **
+    
+    // ** ÙˆØ¸ÙŠÙØ© Ù…Ø³Ø§Ø¹Ø¯Ø© Ù„Ø¥Ø±Ø³Ø§Ù„ Ø·Ù„Ø¨Ø§Øª Ø§Ù„Ø¥Ø¯Ø§Ø±Ø© **
     async function sendManagementRequest(action, buttonId, duration = '') {
         const userNumber = document.getElementById('userNumber').value.trim();
         const button = document.getElementById(buttonId);
 
-        // ** ÇáÊÍŞŞ ãä ÑŞã ÇáãÓÊÎÏã (Serial Number) **
+        // ** Ø§Ù„ØªØ­Ù‚Ù‚ Ù…Ù† Ø±Ù‚Ù… Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù… (Serial Number) **
         if (!userNumber) {
-            alert("?? íÌÈ ÅÏÎÇá ÑŞã ÇáãÓÊÎÏã İí ÇáÍŞá ÇáÚáæí ÃæáÇğ áÊäİíĞ ÚãáíÉ ÇáÅÏÇÑÉ (ÇáÅíŞÇİ/ÇáÊÚÏíá/ÇáÍĞİ).");
+            alert("âš ï¸ ÙŠØ¬Ø¨ Ø¥Ø¯Ø®Ø§Ù„ Ø±Ù‚Ù… Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù… ÙÙŠ Ø§Ù„Ø­Ù‚Ù„ Ø§Ù„Ø¹Ù„ÙˆÙŠ Ø£ÙˆÙ„Ø§Ù‹ Ù„ØªÙ†ÙÙŠØ° Ø¹Ù…Ù„ÙŠØ© Ø§Ù„Ø¥Ø¯Ø§Ø±Ø© (Ø§Ù„Ø¥ÙŠÙ‚Ø§Ù/Ø§Ù„ØªØ¹Ø¯ÙŠÙ„/Ø§Ù„Ø­Ø°Ù).");
             return;
         }
-       
+        
         const originalText = button.textContent;
-        button.textContent = "ÌÇÑí ÇáãÚÇáÌÉ...";
+        button.textContent = "Ø¬Ø§Ø±ÙŠ Ø§Ù„Ù…Ø¹Ø§Ù„Ø¬Ø©...";
         button.disabled = true;
 
         let url = `${GAS_URL}?action=${action}&userNumber=${userNumber}`;
         if (duration) {
             url += `&duration=${duration}`;
         }
-       
+        
         try {
             const res = await fetch(url);
             const data = await res.json();
 
             if (data.status === 'success') {
-                alert(`? Êã ÊäİíĞ ÚãáíÉ ${originalText.split('/')[0]} ÈäÌÇÍ Úáì ÇáãÓÊÎÏã: ${userNumber}`);
+                alert(`âœ… ØªÙ… ØªÙ†ÙÙŠØ° Ø¹Ù…Ù„ÙŠØ© ${originalText.split('/')[0]} Ø¨Ù†Ø¬Ø§Ø­ Ø¹Ù„Ù‰ Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù…: ${userNumber}`);
             } else if (data.status === 'not_found') {
-                alert(`? İÔá ÇáÚãáíÉ: áã íÊã ÇáÚËæÑ Úáì ÓÌá ááãÓÊÎÏã ÑŞã: ${userNumber}`);
+                alert(`âŒ ÙØ´Ù„ Ø§Ù„Ø¹Ù…Ù„ÙŠØ©: Ù„Ù… ÙŠØªÙ… Ø§Ù„Ø¹Ø«ÙˆØ± Ø¹Ù„Ù‰ Ø³Ø¬Ù„ Ù„Ù„Ù…Ø³ØªØ®Ø¯Ù… Ø±Ù‚Ù…: ${userNumber}`);
             } else {
-                alert(`? İÔá İí ÇáÚãáíÉ: ${data.message || 'ÎØÃ ÛíÑ ãÚÑæİ.'}`);
+                alert(`âŒ ÙØ´Ù„ ÙÙŠ Ø§Ù„Ø¹Ù…Ù„ÙŠØ©: ${data.message || 'Ø®Ø·Ø£ ØºÙŠØ± Ù…Ø¹Ø±ÙˆÙ.'}`);
             }
         } catch (err) {
-            alert("?? ÎØÃ İí ÇáÇÊÕÇá ÈÇáÎÇÏã¡ ÍÇæá ãÌÏÏÇğ.");
+            alert("âš ï¸ Ø®Ø·Ø£ ÙÙŠ Ø§Ù„Ø§ØªØµØ§Ù„ Ø¨Ø§Ù„Ø®Ø§Ø¯Ù…ØŒ Ø­Ø§ÙˆÙ„ Ù…Ø¬Ø¯Ø¯Ø§Ù‹.");
             console.error("Fetch Error:", err);
         } finally {
             button.textContent = originalText;
@@ -272,7 +272,7 @@
     }
 
 
-    // ** æÙíİÉ ÊİÚíá ÇáãÓÊÎÏã (æÙíİÊß ÇáÃÕáíÉ) **
+    // ** ÙˆØ¸ÙŠÙØ© ØªÙØ¹ÙŠÙ„ Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù… (ÙˆØ¸ÙŠÙØªÙƒ Ø§Ù„Ø£ØµÙ„ÙŠØ©) **
     async function activateUser() {
       const userNumber = document.getElementById('userNumber').value.trim();
       const duration = document.getElementById('duration').value;
@@ -281,11 +281,11 @@
       const activateButton = document.getElementById('activateButton');
 
       if (!userNumber || !duration) {
-        alert("?? ÃÏÎá ÑŞã ÇáãÓÊÎÏã æÇÎÊÑ ÇáãÏÉ ÃæáÇğ");
+        alert("âš ï¸ Ø£Ø¯Ø®Ù„ Ø±Ù‚Ù… Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù… ÙˆØ§Ø®ØªØ± Ø§Ù„Ù…Ø¯Ø© Ø£ÙˆÙ„Ø§Ù‹");
         return;
       }
-     
-      activateButton.textContent = "ÌÇÑí ÇáÊæáíÏ...";
+      
+      activateButton.textContent = "Ø¬Ø§Ø±ÙŠ Ø§Ù„ØªÙˆÙ„ÙŠØ¯...";
       activateButton.disabled = true;
       resultDiv.style.display = 'none';
 
@@ -296,76 +296,76 @@
         if (data.code) {
           codeDisplay.textContent = data.code;
           resultDiv.style.display = 'flex';
-          alert(`? Êã ÊæáíÏ ÇáßæÏ ÈäÌÇÍ: ${data.code}`);
+          alert(`âœ… ØªÙ… ØªÙˆÙ„ÙŠØ¯ Ø§Ù„ÙƒÙˆØ¯ Ø¨Ù†Ø¬Ø§Ø­: ${data.code}`);
         } else {
-          codeDisplay.textContent = "? ÎØÃ İí ÊæáíÏ ÇáßæÏ";
+          codeDisplay.textContent = "âŒ Ø®Ø·Ø£ ÙÙŠ ØªÙˆÙ„ÙŠØ¯ Ø§Ù„ÙƒÙˆØ¯";
           resultDiv.style.display = 'flex';
-          alert("? ÍÏË ÎØÃ ÃËäÇÁ ÇáÊİÚíá.");
+          alert("âŒ Ø­Ø¯Ø« Ø®Ø·Ø£ Ø£Ø«Ù†Ø§Ø¡ Ø§Ù„ØªÙØ¹ÙŠÙ„.");
         }
       } catch (err) {
-        codeDisplay.textContent = "?? ÎØÃ İí ÇáÇÊÕÇá ÈÇáÎÇÏã.";
+        codeDisplay.textContent = "âš ï¸ Ø®Ø·Ø£ ÙÙŠ Ø§Ù„Ø§ØªØµØ§Ù„ Ø¨Ø§Ù„Ø®Ø§Ø¯Ù….";
         resultDiv.style.display = 'flex';
-        alert("?? ÎØÃ İí ÇáÇÊÕÇá ÈÇáÎÇÏã¡ ÍÇæá ãÌÏÏÇğ.");
+        alert("âš ï¸ Ø®Ø·Ø£ ÙÙŠ Ø§Ù„Ø§ØªØµØ§Ù„ Ø¨Ø§Ù„Ø®Ø§Ø¯Ù…ØŒ Ø­Ø§ÙˆÙ„ Ù…Ø¬Ø¯Ø¯Ø§Ù‹.");
       } finally {
-         activateButton.textContent = "ÊİÚíá ÇáÂä æÊæáíÏ ÇáßæÏ";
+         activateButton.textContent = "ØªÙØ¹ÙŠÙ„ Ø§Ù„Ø¢Ù† ÙˆØªÙˆÙ„ÙŠØ¯ Ø§Ù„ÙƒÙˆØ¯";
          activateButton.disabled = false;
       }
     }
 
 
-    // ** æÙÇÆİ ÇáÅÏÇÑÉ ÇáÌÏíÏÉ **
+    // ** ÙˆØ¸Ø§Ø¦Ù Ø§Ù„Ø¥Ø¯Ø§Ø±Ø© Ø§Ù„Ø¬Ø¯ÙŠØ¯Ø© **
 
-    // 1. ÅíŞÇİ ÇáßæÏ ãÄŞÊÇğ
+    // 1. Ø¥ÙŠÙ‚Ø§Ù Ø§Ù„ÙƒÙˆØ¯ Ù…Ø¤Ù‚ØªØ§Ù‹
     function suspendCode() {
         if (!document.getElementById('userNumber').value.trim()) {
-            alert("?? íÌÈ ÅÏÎÇá ÑŞã ÇáãÓÊÎÏã ÃæáÇğ.");
+            alert("âš ï¸ ÙŠØ¬Ø¨ Ø¥Ø¯Ø®Ø§Ù„ Ø±Ù‚Ù… Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù… Ø£ÙˆÙ„Ø§Ù‹.");
             return;
         }
-        if (!confirm("åá ÃäÊ ãÊÃßÏ ãä ÅíŞÇİ ÊİÚíá åĞÇ ÇáãÓÊÎÏã ãÄŞÊÇğ¿")) return;
+        if (!confirm("Ù‡Ù„ Ø£Ù†Øª Ù…ØªØ£ÙƒØ¯ Ù…Ù† Ø¥ÙŠÙ‚Ø§Ù ØªÙØ¹ÙŠÙ„ Ù‡Ø°Ø§ Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù… Ù…Ø¤Ù‚ØªØ§Ù‹ØŸ")) return;
         sendManagementRequest('suspend', 'suspendButton');
     }
 
-    // 2. ÊÚÏíá ÇáãÏÉ/ÅÚÇÏÉ ÇáÊİÚíá
+    // 2. ØªØ¹Ø¯ÙŠÙ„ Ø§Ù„Ù…Ø¯Ø©/Ø¥Ø¹Ø§Ø¯Ø© Ø§Ù„ØªÙØ¹ÙŠÙ„
     function modifyCode() {
         if (!document.getElementById('userNumber').value.trim()) {
-            alert("?? íÌÈ ÅÏÎÇá ÑŞã ÇáãÓÊÎÏã ÃæáÇğ.");
+            alert("âš ï¸ ÙŠØ¬Ø¨ Ø¥Ø¯Ø®Ø§Ù„ Ø±Ù‚Ù… Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù… Ø£ÙˆÙ„Ø§Ù‹.");
             return;
         }
         const duration = document.getElementById('duration').value;
         if (!duration) {
-             alert("?? íÑÌì ÇÎÊíÇÑ ãÏÉ ÇáÊãÏíÏ ÇáÌÏíÏÉ ãä ÇáŞÇÆãÉ ÇáãäÓÏáÉ ŞÈá ÇáÖÛØ Úáì ÊãÏíÏ.");
+             alert("âš ï¸ ÙŠØ±Ø¬Ù‰ Ø§Ø®ØªÙŠØ§Ø± Ù…Ø¯Ø© Ø§Ù„ØªÙ…Ø¯ÙŠØ¯ Ø§Ù„Ø¬Ø¯ÙŠØ¯Ø© Ù…Ù† Ø§Ù„Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ù…Ù†Ø³Ø¯Ù„Ø© Ù‚Ø¨Ù„ Ø§Ù„Ø¶ØºØ· Ø¹Ù„Ù‰ ØªÙ…Ø¯ÙŠØ¯.");
              return;
         }
         const durationText = document.querySelector('#duration option:checked').textContent;
-        if (!confirm(`åá ÃäÊ ãÊÃßÏ ãä ÊãÏíÏ/ÊÚÏíá ÇáÊİÚíá ááãÓÊÎÏã ÈãÏÉ: ${durationText}¿`)) return;
+        if (!confirm(`Ù‡Ù„ Ø£Ù†Øª Ù…ØªØ£ÙƒØ¯ Ù…Ù† ØªÙ…Ø¯ÙŠØ¯/ØªØ¹Ø¯ÙŠÙ„ Ø§Ù„ØªÙØ¹ÙŠÙ„ Ù„Ù„Ù…Ø³ØªØ®Ø¯Ù… Ø¨Ù…Ø¯Ø©: ${durationText}ØŸ`)) return;
         sendManagementRequest('modify', 'modifyButton', duration);
     }
-   
-    // 3. ÍĞİ ÇáßæÏ äåÇÆíÇğ
+    
+    // 3. Ø­Ø°Ù Ø§Ù„ÙƒÙˆØ¯ Ù†Ù‡Ø§Ø¦ÙŠØ§Ù‹
     function deleteCode() {
         if (!document.getElementById('userNumber').value.trim()) {
-            alert("?? íÌÈ ÅÏÎÇá ÑŞã ÇáãÓÊÎÏã ÃæáÇğ.");
+            alert("âš ï¸ ÙŠØ¬Ø¨ Ø¥Ø¯Ø®Ø§Ù„ Ø±Ù‚Ù… Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù… Ø£ÙˆÙ„Ø§Ù‹.");
             return;
         }
-        if (!confirm("?? ÊÍĞíÑ: åá ÃäÊ ãÊÃßÏ ÊãÇãÇğ ãä ÍĞİ ÇáßæÏ äåÇÆíÇğ áåĞÇ ÇáãÓÊÎÏã¿ áÇ íãßä ÇáÊÑÇÌÚ Úä åĞÇ ÇáÅÌÑÇÁ.")) return;
+        if (!confirm("ğŸš¨ ØªØ­Ø°ÙŠØ±: Ù‡Ù„ Ø£Ù†Øª Ù…ØªØ£ÙƒØ¯ ØªÙ…Ø§Ù…Ø§Ù‹ Ù…Ù† Ø­Ø°Ù Ø§Ù„ÙƒÙˆØ¯ Ù†Ù‡Ø§Ø¦ÙŠØ§Ù‹ Ù„Ù‡Ø°Ø§ Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù…ØŸ Ù„Ø§ ÙŠÙ…ÙƒÙ† Ø§Ù„ØªØ±Ø§Ø¬Ø¹ Ø¹Ù† Ù‡Ø°Ø§ Ø§Ù„Ø¥Ø¬Ø±Ø§Ø¡.")) return;
         sendManagementRequest('delete', 'deleteButton');
     }
 
-    // ** æÙíİÉ ÇáäÓÎ **
+    // ** ÙˆØ¸ÙŠÙØ© Ø§Ù„Ù†Ø³Ø® **
     function copyCode() {
         const code = document.getElementById('activationCodeDisplay').textContent;
         navigator.clipboard.writeText(code)
             .then(() => {
-                alert("? Êã äÓÎ ßæÏ ÇáÊİÚíá ÈäÌÇÍ!");
+                alert("âœ… ØªÙ… Ù†Ø³Ø® ÙƒÙˆØ¯ Ø§Ù„ØªÙØ¹ÙŠÙ„ Ø¨Ù†Ø¬Ø§Ø­!");
             })
             .catch(err => {
-                console.error('İÔá İí ÇáäÓÎ:', err);
-                alert("? İÔá İí äÓÎ ÇáßæÏ¡ íÑÌì ÇáäÓÎ íÏæíÇğ.");
+                console.error('ÙØ´Ù„ ÙÙŠ Ø§Ù„Ù†Ø³Ø®:', err);
+                alert("âŒ ÙØ´Ù„ ÙÙŠ Ù†Ø³Ø® Ø§Ù„ÙƒÙˆØ¯ØŒ ÙŠØ±Ø¬Ù‰ Ø§Ù„Ù†Ø³Ø® ÙŠØ¯ÙˆÙŠØ§Ù‹.");
             });
     }
 
-    // ** ?? æÙíİÉ ãäÚ ÇáäÓÎ ÚÈÑ ÃÍÏÇË áæÍÉ ÇáãİÇÊíÍ æÇáãÇæÓ ?? **
-    document.addEventListener('contextmenu', event => event.preventDefault());
+    // ** ğŸ”’ ÙˆØ¸ÙŠÙØ© Ù…Ù†Ø¹ Ø§Ù„Ù†Ø³Ø® Ø¹Ø¨Ø± Ø£Ø­Ø¯Ø§Ø« Ù„ÙˆØ­Ø© Ø§Ù„Ù…ÙØ§ØªÙŠØ­ ÙˆØ§Ù„Ù…Ø§ÙˆØ³ ğŸ”’ **
+    document.addEventListener('contextmenu', event => event.preventDefault()); 
     document.onkeydown = function(e) {
       if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) || (e.ctrlKey && e.keyCode == 85) || (e.ctrlKey && e.keyCode == 67)) {
         return false;
