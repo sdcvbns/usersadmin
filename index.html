@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>? ·ÊÕ…  ›⁄Ì· «·„” Œœ„Ì‰</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #28a745;
+      --primary-hover: #1f8738;
+      --secondary-color: #007bff;
+      --bg-light: #f8f9fa;
+      --card-bg: #ffffff;
+      --shadow-soft: 0 12px 24px rgba(0, 0, 0, 0.08);
+      --danger-color: #dc3545;
+      --warning-color: #ffc107;
+    }
+
+    /* ** √‰Ì„Ì‘‰ Ê ’„Ì„ «·»ÿ«ﬁ… ** */
+    @keyframes fadeIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(135deg, var(--bg-light), #e3f2fd);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
+      direction: rtl;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 35px;
+      width: 100%;
+      max-width: 420px;
+      border-radius: 20px;
+      box-shadow: var(--shadow-soft);
+      border-left: 6px solid var(--primary-color);
+      box-sizing: border-box;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.8s forwards;
+    }
+
+    h3 {
+      color: var(--primary-color);
+      margin-top: 0;
+      font-weight: 700;
+      font-size: 1.8rem;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    /* ** ” «Ì· ÕﬁÊ· «·≈œŒ«· Ê«·«Œ Ì«— ** */
+    input, select {
+      width: 100%;
+      padding: 12px 15px;
+      margin: 12px 0;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      text-align: right;
+      font-size: 16px;
+      box-sizing: border-box;
+      -webkit-user-select: text !important;
+      -moz-user-select: text !important;
+      -ms-user-select: text !important;
+      user-select: text !important;
+    }
+   
+    input:focus, select:focus {
+      border-color: var(--secondary-color);
+      box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+      outline: none;
+    }
+
+    /* ** ” «Ì· «·√“—«— ** */
+    button {
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 17px;
+      font-weight: 600;
+      margin-top: 15px;
+      transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+      background: var(--primary-color);
+    }
+
+    button:hover {
+        box-shadow: 0 6px 12px rgba(40, 167, 69, 0.3);
+    }
+    button:active {
+        transform: scale(0.98);
+    }
+
+    /* ** √·Ê«‰ √“—«— «·≈œ«—… «·ÃœÌœ… ** */
+    .btn-suspend {
+        background: var(--warning-color);
+        color: #333;
+        margin-top: 20px;
+    }
+    .btn-suspend:hover {
+        background: #e0a800;
+        box-shadow: 0 6px 12px rgba(255, 193, 7, 0.3);
+    }
+
+    .btn-danger {
+        background: var(--danger-color);
+    }
+    .btn-danger:hover {
+        background: #c82333;
+        box-shadow: 0 6px 12px rgba(220, 53, 69, 0.3);
+    }
+
+    .btn-modify {
+        background: var(--secondary-color);
+    }
+    .btn-modify:hover {
+        background: #0069d9;
+        box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3);
+    }
+
+    /* ** ›’· √ﬁ”«„ «·≈œ«—… ** */
+    .management-separator {
+        text-align: center;
+        color: #6c757d;
+        margin: 30px 0 15px;
+        padding-top: 15px;
+        border-top: 1px dashed #ced4da;
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
+   
+    /* ** ⁄—÷ «·ﬂÊœ «·„ıÊ·¯Ûœ ** */
+    .result {
+      margin-top: 25px;
+      padding: 15px;
+      background: #e9f7ef;
+      border: 1px dashed var(--primary-color);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    .result-label {
+        color: var(--primary-hover);
+        font-weight: 600;
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+    }
+
+    #activationCodeDisplay {
+        font-weight: bold;
+        color: var(--secondary-color);
+        font-size: 1.2rem;
+        direction: ltr;
+        font-family: 'Courier New', monospace;
+        padding: 5px;
+        -webkit-user-select: text !important;
+        -moz-user-select: text !important;
+        -ms-user-select: text !important;
+        user-select: text !important;
+    }
+   
+    .copy-btn {
+        background: var(--secondary-color);
+        width: auto !important;
+        padding: 6px 15px !important;
+        font-size: 14px !important;
+        margin-top: 15px !important;
+    }
+
+    .copy-btn:hover {
+        background: #0056b3;
+    }
+   
+    /* ** «· Ã«Ê»Ì… (Responsive) ** */
+    @media (max-width: 500px) {
+        .card {
+            padding: 25px 15px;
+        }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h3>·ÊÕ…  ›⁄Ì· «·„” Œœ„Ì‰</h3>
+    <input type="text" id="userNumber" placeholder="√œŒ· —ﬁ„ «·„” Œœ„ (USR-XXXX)" value="">
+    <select id="duration">
+      <option value="">«Œ — „œ… «· ›⁄Ì·</option>
+      <option value="test">«Œ »«— (2 ”«⁄« )</option>
+      <option value="1m">‘Â— (30 ÌÊ„)</option>
+      <option value="2m">‘Â—Ì‰ (60 ÌÊ„)</option>
+      <option value="3m">3 √‘Â— (90 ÌÊ„)</option>
+      <option value="6m">6 √‘Â—</option>
+      <option value="12m">”‰… ﬂ«„·…</option>
+    </select>
+
+    <button onclick="activateUser()" id="activateButton"> ›⁄Ì· «·¬‰ Ê Ê·Ìœ «·ﬂÊœ</button>
+   
+    <div class="result" id="result" style="display:none;">
+        <div class="result-label">«·ﬂÊœ «·„ıÊ·¯Ûœ:</div>
+        <div id="activationCodeDisplay"></div>
+        <button class="copy-btn" onclick="copyCode()">‰”Œ «·ﬂÊœ</button>
+    </div>
+
+    <div class="management-separator">≈œ«—… «· ›⁄Ì·</div>
+   
+    <button onclick="suspendCode()" id="suspendButton" class="btn-suspend">≈Ìﬁ«› „ƒﬁ  ··ﬂÊœ</button>
+    <button onclick="modifyCode()" id="modifyButton" class="btn-modify"> „œÌœ/ ⁄œÌ· «·„œ…</button>
+    <button onclick="deleteCode()" id="deleteButton" class="btn-danger">Õ–› «·ﬂÊœ ‰Â«∆Ì«</button>
+
+  </div>
+
+  <script>
+    const GAS_URL = "https://script.google.com/macros/s/AKfycbyuD0EUMjGq9_rf6NDpv3WlXtENX5P3wdd3U2i3wA2sSVZuQc7nBX4Cg-f6jgrtbcERxQ/exec";
+   
+    // ** ÊŸÌ›… „”«⁄œ… ·≈—”«· ÿ·»«  «·≈œ«—… **
+    async function sendManagementRequest(action, buttonId, duration = '') {
+        const userNumber = document.getElementById('userNumber').value.trim();
+        const button = document.getElementById(buttonId);
+
+        // ** «· Õﬁﬁ „‰ —ﬁ„ «·„” Œœ„ (Serial Number) **
+        if (!userNumber) {
+            alert("?? ÌÃ» ≈œŒ«· —ﬁ„ «·„” Œœ„ ›Ì «·Õﬁ· «·⁄·ÊÌ √Ê·« · ‰›Ì– ⁄„·Ì… «·≈œ«—… («·≈Ìﬁ«›/«· ⁄œÌ·/«·Õ–›).");
+            return;
+        }
+       
+        const originalText = button.textContent;
+        button.textContent = "Ã«—Ì «·„⁄«·Ã…...";
+        button.disabled = true;
+
+        let url = `${GAS_URL}?action=${action}&userNumber=${userNumber}`;
+        if (duration) {
+            url += `&duration=${duration}`;
+        }
+       
+        try {
+            const res = await fetch(url);
+            const data = await res.json();
+
+            if (data.status === 'success') {
+                alert(`?  „  ‰›Ì– ⁄„·Ì… ${originalText.split('/')[0]} »‰Ã«Õ ⁄·Ï «·„” Œœ„: ${userNumber}`);
+            } else if (data.status === 'not_found') {
+                alert(`? ›‘· «·⁄„·Ì…: ·„ Ì „ «·⁄ÀÊ— ⁄·Ï ”Ã· ··„” Œœ„ —ﬁ„: ${userNumber}`);
+            } else {
+                alert(`? ›‘· ›Ì «·⁄„·Ì…: ${data.message || 'Œÿ√ €Ì— „⁄—Ê›.'}`);
+            }
+        } catch (err) {
+            alert("?? Œÿ√ ›Ì «·« ’«· »«·Œ«œ„° Õ«Ê· „Ãœœ«.");
+            console.error("Fetch Error:", err);
+        } finally {
+            button.textContent = originalText;
+            button.disabled = false;
+        }
+    }
+
+
+    // ** ÊŸÌ›…  ›⁄Ì· «·„” Œœ„ (ÊŸÌ› ﬂ «·√’·Ì…) **
+    async function activateUser() {
+      const userNumber = document.getElementById('userNumber').value.trim();
+      const duration = document.getElementById('duration').value;
+      const resultDiv = document.getElementById('result');
+      const codeDisplay = document.getElementById('activationCodeDisplay');
+      const activateButton = document.getElementById('activateButton');
+
+      if (!userNumber || !duration) {
+        alert("?? √œŒ· —ﬁ„ «·„” Œœ„ Ê«Œ — «·„œ… √Ê·«");
+        return;
+      }
+     
+      activateButton.textContent = "Ã«—Ì «· Ê·Ìœ...";
+      activateButton.disabled = true;
+      resultDiv.style.display = 'none';
+
+      try {
+        const res = await fetch(`${GAS_URL}?action=activate&userNumber=${userNumber}&duration=${duration}`);
+        const data = await res.json();
+
+        if (data.code) {
+          codeDisplay.textContent = data.code;
+          resultDiv.style.display = 'flex';
+          alert(`?  „  Ê·Ìœ «·ﬂÊœ »‰Ã«Õ: ${data.code}`);
+        } else {
+          codeDisplay.textContent = "? Œÿ√ ›Ì  Ê·Ìœ «·ﬂÊœ";
+          resultDiv.style.display = 'flex';
+          alert("? ÕœÀ Œÿ√ √À‰«¡ «· ›⁄Ì·.");
+        }
+      } catch (err) {
+        codeDisplay.textContent = "?? Œÿ√ ›Ì «·« ’«· »«·Œ«œ„.";
+        resultDiv.style.display = 'flex';
+        alert("?? Œÿ√ ›Ì «·« ’«· »«·Œ«œ„° Õ«Ê· „Ãœœ«.");
+      } finally {
+         activateButton.textContent = " ›⁄Ì· «·¬‰ Ê Ê·Ìœ «·ﬂÊœ";
+         activateButton.disabled = false;
+      }
+    }
+
+
+    // ** ÊŸ«∆› «·≈œ«—… «·ÃœÌœ… **
+
+    // 1. ≈Ìﬁ«› «·ﬂÊœ „ƒﬁ «
+    function suspendCode() {
+        if (!document.getElementById('userNumber').value.trim()) {
+            alert("?? ÌÃ» ≈œŒ«· —ﬁ„ «·„” Œœ„ √Ê·«.");
+            return;
+        }
+        if (!confirm("Â· √‰  „ √ﬂœ „‰ ≈Ìﬁ«›  ›⁄Ì· Â–« «·„” Œœ„ „ƒﬁ «ø")) return;
+        sendManagementRequest('suspend', 'suspendButton');
+    }
+
+    // 2.  ⁄œÌ· «·„œ…/≈⁄«œ… «· ›⁄Ì·
+    function modifyCode() {
+        if (!document.getElementById('userNumber').value.trim()) {
+            alert("?? ÌÃ» ≈œŒ«· —ﬁ„ «·„” Œœ„ √Ê·«.");
+            return;
+        }
+        const duration = document.getElementById('duration').value;
+        if (!duration) {
+             alert("?? Ì—ÃÏ «Œ Ì«— „œ… «· „œÌœ «·ÃœÌœ… „‰ «·ﬁ«∆„… «·„‰”œ·… ﬁ»· «·÷€ÿ ⁄·Ï  „œÌœ.");
+             return;
+        }
+        const durationText = document.querySelector('#duration option:checked').textContent;
+        if (!confirm(`Â· √‰  „ √ﬂœ „‰  „œÌœ/ ⁄œÌ· «· ›⁄Ì· ··„” Œœ„ »„œ…: ${durationText}ø`)) return;
+        sendManagementRequest('modify', 'modifyButton', duration);
+    }
+   
+    // 3. Õ–› «·ﬂÊœ ‰Â«∆Ì«
+    function deleteCode() {
+        if (!document.getElementById('userNumber').value.trim()) {
+            alert("?? ÌÃ» ≈œŒ«· —ﬁ„ «·„” Œœ„ √Ê·«.");
+            return;
+        }
+        if (!confirm("??  Õ–Ì—: Â· √‰  „ √ﬂœ  „«„« „‰ Õ–› «·ﬂÊœ ‰Â«∆Ì« ·Â–« «·„” Œœ„ø ·« Ì„ﬂ‰ «· —«Ã⁄ ⁄‰ Â–« «·≈Ã—«¡.")) return;
+        sendManagementRequest('delete', 'deleteButton');
+    }
+
+    // ** ÊŸÌ›… «·‰”Œ **
+    function copyCode() {
+        const code = document.getElementById('activationCodeDisplay').textContent;
+        navigator.clipboard.writeText(code)
+            .then(() => {
+                alert("?  „ ‰”Œ ﬂÊœ «· ›⁄Ì· »‰Ã«Õ!");
+            })
+            .catch(err => {
+                console.error('›‘· ›Ì «·‰”Œ:', err);
+                alert("? ›‘· ›Ì ‰”Œ «·ﬂÊœ° Ì—ÃÏ «·‰”Œ ÌœÊÌ«.");
+            });
+    }
+
+    // ** ?? ÊŸÌ›… „‰⁄ «·‰”Œ ⁄»— √Õœ«À ·ÊÕ… «·„›« ÌÕ Ê«·„«Ê” ?? **
+    document.addEventListener('contextmenu', event => event.preventDefault());
+    document.onkeydown = function(e) {
+      if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) || (e.ctrlKey && e.keyCode == 85) || (e.ctrlKey && e.keyCode == 67)) {
+        return false;
+      }
+    };
+  </script>
+</body>
+</html>
