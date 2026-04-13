@@ -229,16 +229,15 @@
   </div>
 
   <script>
-    const GAS_URL = "https://script.google.com/macros/s/AKfycbyuD0EUMjGq9_rf6NDpv3WlXtENX5P3wdd3U2i3wA2sSVZuQc7nBX4Cg-f6jgrtbcERxQ/exec";
+    // الرابط المحدث الذي زودتني به
+    const GAS_URL = "https://script.google.com/macros/s/AKfycbylrrQh0TdELAO9MI-kYN3JsN6s7JKBHlzrZOqfRj_pKorZzS_E-roFPrW2DGGzN9UV/exec";
     
-    // ** وظيفة مساعدة لإرسال طلبات الإدارة **
     async function sendManagementRequest(action, buttonId, duration = '') {
         const userNumber = document.getElementById('userNumber').value.trim();
         const button = document.getElementById(buttonId);
 
-        // ** التحقق من رقم المستخدم (Serial Number) **
         if (!userNumber) {
-            alert("⚠️ يجب إدخال رقم المستخدم في الحقل العلوي أولاً لتنفيذ عملية الإدارة (الإيقاف/التعديل/الحذف).");
+            alert("⚠️ يجب إدخال رقم المستخدم في الحقل العلوي أولاً لتنفيذ عملية الإدارة.");
             return;
         }
         
@@ -247,32 +246,27 @@
         button.disabled = true;
 
         let url = `${GAS_URL}?action=${action}&userNumber=${userNumber}`;
-        if (duration) {
-            url += `&duration=${duration}`;
-        }
+        if (duration) url += `&duration=${duration}`;
         
         try {
             const res = await fetch(url);
             const data = await res.json();
 
             if (data.status === 'success') {
-                alert(`✅ تم تنفيذ عملية ${originalText.split('/')[0]} بنجاح على المستخدم: ${userNumber}`);
+                alert(`✅ تم تنفيذ عملية ${originalText} بنجاح للمستخدم: ${userNumber}`);
             } else if (data.status === 'not_found') {
-                alert(`❌ فشل العملية: لم يتم العثور على سجل للمستخدم رقم: ${userNumber}`);
+                alert(`❌ لم يتم العثور على المستخدم رقم: ${userNumber}`);
             } else {
-                alert(`❌ فشل في العملية: ${data.message || 'خطأ غير معروف.'}`);
+                alert(`❌ فشل: ${data.message || 'خطأ غير معروف.'}`);
             }
         } catch (err) {
-            alert("⚠️ خطأ في الاتصال بالخادم، حاول مجدداً.");
-            console.error("Fetch Error:", err);
+            alert("⚠️ خطأ في الاتصال بالخادم.");
         } finally {
             button.textContent = originalText;
             button.disabled = false;
         }
     }
 
-
-    // ** وظيفة تفعيل المستخدم (وظيفتك الأصلية) **
     async function activateUser() {
       const userNumber = document.getElementById('userNumber').value.trim();
       const duration = document.getElementById('duration').value;
@@ -298,78 +292,44 @@
           resultDiv.style.display = 'flex';
           alert(`✅ تم توليد الكود بنجاح: ${data.code}`);
         } else {
-          codeDisplay.textContent = "❌ خطأ في توليد الكود";
-          resultDiv.style.display = 'flex';
           alert("❌ حدث خطأ أثناء التفعيل.");
         }
       } catch (err) {
-        codeDisplay.textContent = "⚠️ خطأ في الاتصال بالخادم.";
-        resultDiv.style.display = 'flex';
-        alert("⚠️ خطأ في الاتصال بالخادم، حاول مجدداً.");
+        alert("⚠️ خطأ في الاتصال بالسيرفر.");
       } finally {
          activateButton.textContent = "تفعيل الآن وتوليد الكود";
          activateButton.disabled = false;
       }
     }
 
-
-    // ** وظائف الإدارة الجديدة **
-
-    // 1. إيقاف الكود مؤقتاً
     function suspendCode() {
-        if (!document.getElementById('userNumber').value.trim()) {
-            alert("⚠️ يجب إدخال رقم المستخدم أولاً.");
-            return;
-        }
-        if (!confirm("هل أنت متأكد من إيقاف تفعيل هذا المستخدم مؤقتاً؟")) return;
+        if (!document.getElementById('userNumber').value.trim()) { alert("⚠️ أدخل رقم المستخدم أولاً."); return; }
+        if (!confirm("هل أنت متأكد من إيقاف المستخدم مؤقتاً؟")) return;
         sendManagementRequest('suspend', 'suspendButton');
     }
 
-    // 2. تعديل المدة/إعادة التفعيل
     function modifyCode() {
-        if (!document.getElementById('userNumber').value.trim()) {
-            alert("⚠️ يجب إدخال رقم المستخدم أولاً.");
-            return;
-        }
+        if (!document.getElementById('userNumber').value.trim()) { alert("⚠️ أدخل رقم المستخدم أولاً."); return; }
         const duration = document.getElementById('duration').value;
-        if (!duration) {
-             alert("⚠️ يرجى اختيار مدة التمديد الجديدة من القائمة المنسدلة قبل الضغط على تمديد.");
-             return;
-        }
-        const durationText = document.querySelector('#duration option:checked').textContent;
-        if (!confirm(`هل أنت متأكد من تمديد/تعديل التفعيل للمستخدم بمدة: ${durationText}؟`)) return;
+        if (!duration) { alert("⚠️ اختر المدة الجديدة من القائمة."); return; }
+        if (!confirm("هل تريد تمديد الاشتراك؟")) return;
         sendManagementRequest('modify', 'modifyButton', duration);
     }
     
-    // 3. حذف الكود نهائياً
     function deleteCode() {
-        if (!document.getElementById('userNumber').value.trim()) {
-            alert("⚠️ يجب إدخال رقم المستخدم أولاً.");
-            return;
-        }
-        if (!confirm("🚨 تحذير: هل أنت متأكد تماماً من حذف الكود نهائياً لهذا المستخدم؟ لا يمكن التراجع عن هذا الإجراء.")) return;
+        if (!document.getElementById('userNumber').value.trim()) { alert("⚠️ أدخل رقم المستخدم أولاً."); return; }
+        if (!confirm("🚨 حذف نهائي؟ لا يمكن التراجع!")) return;
         sendManagementRequest('delete', 'deleteButton');
     }
 
-    // ** وظيفة النسخ **
     function copyCode() {
         const code = document.getElementById('activationCodeDisplay').textContent;
-        navigator.clipboard.writeText(code)
-            .then(() => {
-                alert("✅ تم نسخ كود التفعيل بنجاح!");
-            })
-            .catch(err => {
-                console.error('فشل في النسخ:', err);
-                alert("❌ فشل في نسخ الكود، يرجى النسخ يدوياً.");
-            });
+        navigator.clipboard.writeText(code).then(() => alert("✅ تم النسخ!"));
     }
 
-    // ** 🔒 وظيفة منع النسخ عبر أحداث لوحة المفاتيح والماوس 🔒 **
-    document.addEventListener('contextmenu', event => event.preventDefault()); 
-    document.onkeydown = function(e) {
-      if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) || (e.ctrlKey && e.keyCode == 85) || (e.ctrlKey && e.keyCode == 67)) {
-        return false;
-      }
+    document.addEventListener('contextmenu', e => e.preventDefault()); 
+    document.onkeydown = e => {
+      if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey)) return false;
     };
   </script>
 </body>
