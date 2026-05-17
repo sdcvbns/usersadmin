@@ -204,11 +204,9 @@
     <input type="text" id="userNumber" placeholder="أدخل رقم المستخدم (USR-XXXX)" value="">
     <select id="duration">
       <option value="">اختر مدة التفعيل</option>
-      <option value="test">اختبار (2 ساعات)</option>
+      <option value="test">اختبار (ساعتان)</option>
       <option value="1m">شهر (30 يوم)</option>
-      <option value="2m">شهرين (60 يوم)</option>
       <option value="3m">3 أشهر (90 يوم)</option>
-      <option value="6m">6 أشهر</option>
       <option value="12m">سنة كاملة</option>
     </select>
 
@@ -222,15 +220,15 @@
 
     <div class="management-separator">إدارة التفعيل</div>
     
-    <button onclick="suspendCode()" id="suspendButton" class="btn-suspend">إيقاف مؤقت للكود</button>
-    <button onclick="modifyCode()" id="modifyButton" class="btn-modify">تمديد/تعديل المدة</button>
+    <button onclick="suspendCode()" id="suspendButton" class="btn-suspend">إيقاف مؤفت للكود</button>
+    <button onclick="modifyCode()" id="modifyButton" class="btn-modify">تمديد الاشتراك (شهر إضافي)</button>
     <button onclick="deleteCode()" id="deleteButton" class="btn-danger">حذف الكود نهائياً</button>
 
   </div>
 
   <script>
-    // الرابط المحدث الذي زودتني به
-    const GAS_URL = "https://script.google.com/macros/s/AKfycbxtQ5gs0_n91xFqxIP0mxtDycajfADvFAVb1OAk5vToViwF5aD4rU7eeR7Ogxo59Mo8-A/exec";
+    // الرابط المحدث والنهائي الخاص بك لـ Google Apps Script
+    const GAS_URL = "https://script.google.com/macros/s/AKfycbxbD9rPAadWS4686ZKYCbI2CIHnxINOofsZTUiEw9SRi6yvRdvOF9iHyG9ADguiHB5IeA/exec";
     
     async function sendManagementRequest(action, buttonId, duration = '') {
         const userNumber = document.getElementById('userNumber').value.trim();
@@ -245,7 +243,9 @@
         button.textContent = "جاري المعالجة...";
         button.disabled = true;
 
-        let url = `${GAS_URL}?action=${action}&userNumber=${userNumber}`;
+        // إضافة مانع الكاش لضمان وصول الطلب لحظياً للسيرفر دون تخزين مؤقت
+        const cacheBuster = new Date().getTime();
+        let url = `${GAS_URL}?action=${action}&userNumber=${userNumber}&_=${cacheBuster}`;
         if (duration) url += `&duration=${duration}`;
         
         try {
@@ -253,9 +253,9 @@
             const data = await res.json();
 
             if (data.status === 'success') {
-                alert(`✅ تم تنفيذ عملية ${originalText} بنجاح للمستخدم: ${userNumber}`);
+                alert(`✅ تم تنفيذ عملية [${originalText}] بنجاح للمطلب: ${userNumber}`);
             } else if (data.status === 'not_found') {
-                alert(`❌ لم يتم العثور على المستخدم رقم: ${userNumber}`);
+                alert(`❌ لم يتم العثور على أي كود نشط أو مسجل للمستخدم رقم: ${userNumber}`);
             } else {
                 alert(`❌ فشل: ${data.message || 'خطأ غير معروف.'}`);
             }
@@ -284,13 +284,14 @@
       resultDiv.style.display = 'none';
 
       try {
-        const res = await fetch(`${GAS_URL}?action=activate&userNumber=${userNumber}&duration=${duration}`);
+        const cacheBuster = new Date().getTime();
+        const res = await fetch(`${GAS_URL}?action=activate&userNumber=${userNumber}&duration=${duration}&_=${cacheBuster}`);
         const data = await res.json();
 
         if (data.code) {
           codeDisplay.textContent = data.code;
           resultDiv.style.display = 'flex';
-          alert(`✅ تم توليد الكود بنجاح: ${data.code}`);
+          alert(`✅ تم توليد كود التفعيل بنجاح: ${data.code}`);
         } else {
           alert("❌ حدث خطأ أثناء التفعيل.");
         }
@@ -304,27 +305,25 @@
 
     function suspendCode() {
         if (!document.getElementById('userNumber').value.trim()) { alert("⚠️ أدخل رقم المستخدم أولاً."); return; }
-        if (!confirm("هل أنت متأكد من إيقاف المستخدم مؤقتاً؟")) return;
+        if (!confirm("هل أنت متأكد من حظر وإيقاف كود هذا المستخدم مؤقتاً؟")) return;
         sendManagementRequest('suspend', 'suspendButton');
     }
 
     function modifyCode() {
         if (!document.getElementById('userNumber').value.trim()) { alert("⚠️ أدخل رقم المستخدم أولاً."); return; }
-        const duration = document.getElementById('duration').value;
-        if (!duration) { alert("⚠️ اختر المدة الجديدة من القائمة."); return; }
-        if (!confirm("هل تريد تمديد الاشتراك؟")) return;
-        sendManagementRequest('modify', 'modifyButton', duration);
+        if (!confirm("هل تريد تمديد صلاحية هذا الكود لمدة شهر إضافي (30 يوم)؟")) return;
+        sendManagementRequest('modify', 'modifyButton');
     }
     
     function deleteCode() {
         if (!document.getElementById('userNumber').value.trim()) { alert("⚠️ أدخل رقم المستخدم أولاً."); return; }
-        if (!confirm("🚨 حذف نهائي؟ لا يمكن التراجع!")) return;
+        if (!confirm("🚨 حذف نهائي من قاعدة البيانات؟ لا يمكن التراجع عن هذا الإجراء!"));
         sendManagementRequest('delete', 'deleteButton');
     }
 
     function copyCode() {
         const code = document.getElementById('activationCodeDisplay').textContent;
-        navigator.clipboard.writeText(code).then(() => alert("✅ تم النسخ!"));
+        navigator.clipboard.writeText(code).then(() => alert("✅ تم نسخ الكود بنجاح لمشاركته!"));
     }
 
     document.addEventListener('contextmenu', e => e.preventDefault()); 
